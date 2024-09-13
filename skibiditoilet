@@ -5,6 +5,11 @@ local RunService = game:GetService("RunService")
 local lp = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
 local mouse = lp:GetMouse()
 
+local shootCooldown = 0.10
+local keybind = Enum.KeyCode.E -- Set your desired keybind here
+local keybindType = "Toggle" -- Options: "Hold" or "Toggle"
+
+
 local function gettarget(instance)
     for i, v in next, Players:GetPlayers() do
         if v.Character and (instance == v.Character or instance:IsDescendantOf(v.Character)) then
@@ -35,7 +40,7 @@ local con = RunService.Heartbeat:Connect(function()
         mouse1press()
         task.wait()
         mouse1release()
-        task.wait(shootCooldown)  -- Wait for the cooldown period before the next possible shot
+        task.wait(shootCooldown)
     end
 end)
 
