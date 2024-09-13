@@ -5,11 +5,6 @@ local RunService = game:GetService("RunService")
 local lp = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
 local mouse = lp:GetMouse()
 
-local shootCooldown = 0.5
-local keybind = Enum.KeyCode.E -- Set your desired keybind here
-local keybindType = "Hold" -- Options: "Hold" or "Toggle"
-
-
 local function gettarget(instance)
     for i, v in next, Players:GetPlayers() do
         if v.Character and (instance == v.Character or instance:IsDescendantOf(v.Character)) then
